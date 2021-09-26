@@ -1,0 +1,15 @@
+article {
+    float: right;
+    padding: 40px;
+    
+   
+     /* only for demonstration, should be removed */
+  }
+
+  section::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  

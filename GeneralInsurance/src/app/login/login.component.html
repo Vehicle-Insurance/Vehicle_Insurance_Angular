@@ -34,10 +34,10 @@
                         <a routerLink="/login" class="active">Login</a> &nbsp; <a routerLink="/register">Register</a>
                     </div>
                     <form #loginForm="ngForm" (submit)="login(loginForm)">
-                        <input class="form-control" type="text" name="userId"
-                            placeholder="User Id" required 
-                             [(ngModel)]="userId" style="width: 50%;">
-                        <div *ngIf="userId" style="color: red;border: red;">
+                        <input class="form-control" type="email" name="userEmail"
+                            placeholder="User Email" required 
+                             [(ngModel)]="userEmail" style="width: 50%;">
+                        <div *ngIf="userEmail" style="color: red;border: red;">
                             <!-- <div *ngIf="email">email is required</div>
                             <div *ngIf="email">Invalid email</div> -->
                         </div><br>

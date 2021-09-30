@@ -1,0 +1,43 @@
+
+<img src="../assets/images/LTI-LOGO.png" style="float: left;">
+<h2 href="#" style="text-align: center; font-size: 70px; float: none;">Buy Insuarnce</h2>
+
+<div class="form-holder" style="height: 50vmax;">
+    <div class="form-content">
+        <div class="form-items">
+
+            <form #buyForm="ngForm" (submit)="buy(buyForm)">
+                <p>Vehicle Type:</p>
+                <div class="inline-el-holder">
+                    <span class="inline-el">
+                        <div class="rad-with-details">
+                            <input class="form-check-input" type="radio" id="rad1" name="vehicleType"
+                                [(ngModel)]="vehicleType" value="Two wheeler" required
+                                (change)="onItemChange($any($event.target).value)"><label for="rad1">Two wheeler</label>
+                        </div>
+                    </span>
+                    <span class="inline-el">
+                        <div class="rad-with-details">
+                            <input class="form-check-input" type="radio" id="rad2" name="vehicleType"
+                                value="Four wheeler" [(ngModel)]="vehicleType" required checked
+                                (change)="onItemChange($any($event.target).value)"><label for="rad2">Four wheeler</label>
+                        </div>
+                    </span>
+                </div><br>
+
+                <input class="form-control" type="text" name="type" placeholder="Enter two wheeler/four wheeler" required  [(ngModel)]="vehicleType" style="width: 50%;"><br><br>
+                <input class="form-control" type="text" name="manufacturer" placeholder="Enter car/bike manufacturer" required #manufact="ngModel" [(ngModel)]="manufacturer" style="width: 50%;"><br><br>
+                <input class="form-control" type="text" name="model" placeholder="Enter car/bike model" required  [(ngModel)]="model" style="width: 50%;"><br><br>
+                <input class="form-control" type="number" name="age" placeholder="Enter car/bike age" required  [(ngModel)]="age" style="width: 50%;"><br><br>
+                <input class="form-control" type="text" name="registrationNumber" placeholder="Enter registration number" required  [(ngModel)]="registrationNumber" style="width: 50%;"><br><br>
+                <input class="form-control" type="text" name="registrationState" placeholder="Enter registration state" required  [(ngModel)]="registrationState" style="width: 50%;"><br><br>
+                <input class="form-control" type="text" name="engineNumber" placeholder="Enter Engine number" required  [(ngModel)]="engineNumber" style="width: 50%;"><br><br>
+                <input class="form-control" type="text" name="chassisNumber" placeholder="Enter Chassis number" required  [(ngModel)]="chassisNumber" style="width: 50%;"><br><br>
+                <div class="form-button">
+                    <button id="submit" type="submit" class="ibtn">Submit</button>
+                </div>
+            </form>
+            </div>
+            </div>
+            </div>
+

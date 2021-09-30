@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from '../login.service';
+import { LoginService } from '../lnsurance.service';
 import { Users } from '../Users';
 import Swal from 'sweetalert2';
 
@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
 
 
-  userId:number = 0;
+  userEmail:string="";
   userPassword: string="";
   hide:boolean = true;
   res:string="";
@@ -35,10 +35,12 @@ export class LoginComponent implements OnInit {
   onItemChange(value: any){
     this.userType=value;
  }
- login(loginForm:NgForm){
 
+ 
+
+ login(loginForm:NgForm){
     
-      this.user.userId=this.userId
+      this.user.userEmail=this.userEmail
       this.user.userPassword=this.userPassword
       this.loginService.loginUser(this.user).subscribe(
         data=>{
@@ -61,7 +63,7 @@ export class LoginComponent implements OnInit {
                icon: "success",
                confirmButtonText: "Okay"
            });
-           this.router.navigate(['/userProfile']);
+           this.router.navigate(['/home']);
           }
           else if(data.adminStatus=="Sucess"){
             localStorage.setItem('AdminId', String(data.userId));

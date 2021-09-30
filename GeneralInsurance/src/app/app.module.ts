@@ -9,6 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
+import { BuyInsuranceComponent } from './buy-insurance/buy-insurance.component';
+import { PolicyComponent } from './policy/policy.component';
+import { CalculatePremiumComponent } from './calculate-premium/calculate-premium.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     AdminComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    RegisterComponent,
+    BuyInsuranceComponent,
+    PolicyComponent,
+    CalculatePremiumComponent
   ],
   imports: [
     BrowserModule,

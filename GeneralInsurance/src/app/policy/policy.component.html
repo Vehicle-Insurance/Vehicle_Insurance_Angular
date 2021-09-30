@@ -1,0 +1,55 @@
+<img src="../assets/images/LTI-LOGO.png" style="float: left;">
+<h2 href="#" style="text-align: center; font-size: 70px; float: none;">Plans</h2>
+<div class="form-holder" style="height: 50vmax;">
+    <div class="form-content">
+        <div class="form-items">
+
+            <form #planForm="ngForm" (submit)="policy(planForm)">
+                <p>Choose your plan:</p>
+                <div class="inline-el-holder">
+                    <span class="inline-el">
+                        <div class="rad-with-details">
+                            <input class="form-check-input" type="radio" id="rad1" name="planType"
+                                [(ngModel)]="planType" value="Third Party Liability" required
+                                (change)="onItemChange1($any($event.target).value)"><label for="rad1">Third Party Liability</label>
+                        </div>
+                    </span>
+                    <span class="inline-el">
+                        <div class="rad-with-details">
+                            <input class="form-check-input" type="radio" id="rad2" name="planType"
+                                value="Comprehensive" [(ngModel)]="planType" required checked
+                                (change)="onItemChange1($any($event.target).value)"><label for="rad2">Comprehensive</label>
+                        </div>
+                    </span>
+                </div><br>
+
+
+
+                <p>Numbere of years:</p>
+                <div class="inline-el-holder">
+                    <span class="inline-el">
+                        <div class="rad-with-details">
+                            <input class="form-check-input" type="radio" id="rad1" name="years"
+                                [(ngModel)]="years" value="1" required
+                                (change)="onItemChange2($any($event.target).value)"><label for="rad1">One year</label>
+                        </div>
+                    </span>
+                    <span class="inline-el">
+                        <div class="rad-with-details">
+                            <input class="form-check-input" type="radio" id="rad2" name="years"
+                                value="2" [(ngModel)]="years" required checked
+                                (change)="onItemChange2($any($event.target).value)"><label for="rad2">Two year</label>
+                        </div>
+                    </span>
+                    <span class="inline-el">
+                        <div class="rad-with-details">
+                            <input class="form-check-input" type="radio" id="rad3" name="years"
+                                value="3" [(ngModel)]="years" required checked
+                                (change)="onItemChange2($any($event.target).value)"><label for="rad3">Three year</label>
+                        </div>
+                    </span><br>
+                    
+                    <div class="form-button">
+                        <button id="submit" type="submit" class="ibtn">Buy</button>
+                    </div>
+                </div>

@@ -1,1 +1,45 @@
-<p>admin works!</p>
+<img src="../assets/images/LTI-LOGO.png" style="float: left;">
+<h2 href="#" style="text-align: center; font-size: 70px; float: none;">Admin</h2>
+
+<div class="form-holder" style="height: 50vmax;">
+    <div class="form-content">
+        <div class="form-items">
+
+            <form #claimHistoryForm="ngForm" (submit)="claims(claimHistoryForm)">
+                <table>
+                    <tr>
+                        <th>Claim Id</th>
+                        <th>Policy Id</th>
+                        <!-- <th>Vehicle Type</th> -->
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Reason for Claim</th>
+                        <th>Approval</th>
+                        <th>Reject</th>
+                    </tr>
+                    <tr *ngFor="let u of claimList">
+                        <td>{{u.claimId}}</td>
+                        <td>{{u.policyId}}</td>
+                        <!-- <td>{{u.vehicleType}}</td> -->
+                        <td>{{u.claimDate}}</td>
+                        <td>{{u.claimAmount}}</td>
+                        <td>{{u.reasonOfClaim}}</td>
+                        <!-- <select class="claim status" name="claim" [(ngModel)]="claimStatus"  required> 
+                        #claim="ngModel"
+                        [ngClass]="{ 'is-invalid': form.submitted && claim.invalid }" required
+                          <option  value="" class="text-primary font-weight-bolder">
+                            --- Select Status ---
+                          </option>
+                          <option *ngFor="let a of status"[value]="status">
+                            {{a}}
+                          </option>
+                        </select> -->
+                        <td><button (click)="approve(u.claimId)">Approve</button></td>
+                        <td><button (click)="reject(u.claimId)">Reject</button></td>
+                    </tr>
+                </table><br><br>
+               <!-- <div *ngIf="form.submitted && claimStatus.invalid" class="text-danger">
+                    <h6 *ngIf="claimStatus.errors.required">Status is required</h6>
+                 </div>-->
+
+            </form>

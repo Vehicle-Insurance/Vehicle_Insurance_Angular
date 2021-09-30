@@ -12,15 +12,32 @@
             <div class="form-content">
                 <div class="form-items">
                     <h4>Get more things done with Logging platform.</h4>
-
+                    <!-- <table>
+                        <tr>
+                            <th>User Id</th>
+                            <th>User Name</th>
+                            <th>User Email</th>
+                            <th>User Date of birth</th>
+                            <th>User Phone</th>
+                            <th>User Aadhar</th>
+                        </tr>
+                        <tr *ngFor="let u of userList">
+                            <td>{{u.userId}}</td>
+                            <td>{{u.userName}}</td>
+                            <td>{{u.userEmail}}</td>
+                            <td>{{u.userDateOfBirth}}</td>
+                            <td>{{u.userPhone}}</td>
+                            <td>{{u.userAadharNo}}</td>
+                        </tr>
+                    </table> -->
                     <div class="page-links">
                         <a routerLink="/login" class="active">Login</a> &nbsp; <a routerLink="/register">Register</a>
                     </div>
                     <form #loginForm="ngForm" (submit)="login(loginForm)">
-                        <input class="form-control" type="text" name="username"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9-]+.[a-z]{2,4}$" placeholder="E-mail Address" required
-                            #email="ngModel" [(ngModel)]="userEmail" style="width: 50%;">
-                        <div *ngIf="email.invalid && (email.touched||email.dirty)" style="color: red;border: red;">
+                        <input class="form-control" type="text" name="userId"
+                            placeholder="User Id" required 
+                             [(ngModel)]="userId" style="width: 50%;">
+                        <div *ngIf="userId" style="color: red;border: red;">
                             <!-- <div *ngIf="email">email is required</div>
                             <div *ngIf="email">Invalid email</div> -->
                         </div><br>
@@ -40,14 +57,14 @@
                                 <div class="rad-with-details">
                                     <input class="form-check-input" type="radio" id="rad1" name="userType"
                                         [(ngModel)]="userType" value="admin" required
-                                        (change)="onItemChange($event.target.value)"><label for="rad1">Admin</label>
+                                        (change)="onItemChange($any($event.target).value)"><label for="rad1">Admin</label>
                                 </div>
                             </span>
                             <span class="inline-el">
                                 <div class="rad-with-details">
                                     <input class="form-check-input" type="radio" id="rad2" name="userType"
                                         value="customer" [(ngModel)]="userType" required checked
-                                        (change)="onItemChange($event.target.value)"><label for="rad2">Customer</label>
+                                        (change)="onItemChange($any($event.target).value)"><label for="rad2">Customer</label>
                                 </div>
                             </span>
                         </div> -->
@@ -67,3 +84,4 @@
         </div>
     </div>
 </div>
+<!-- pattern="[a-z0-9._%+-]+@[a-z0-9-]+.[a-z]{2,4}$" -->

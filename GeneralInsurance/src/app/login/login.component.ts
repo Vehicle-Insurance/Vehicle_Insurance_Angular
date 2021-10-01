@@ -24,12 +24,7 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router,private loginService:LoginService) { }
 
   ngOnInit(): void {
-    this.loginService.getUsers().subscribe(
-      data=>{
-        console.log(data)
-        this.userList=data
-      }
-    )
+    
   }
 
   onItemChange(value: any){
@@ -58,7 +53,7 @@ export class LoginComponent implements OnInit {
           else if(data.userStatus=="Sucess"){
             localStorage.setItem('UserId', String(data.userId));
             Swal.fire({
-              title: "User Login Success",
+              title: "Welcome "+data.userName+" :-)",
                text:"Please avail services",
                icon: "success",
                confirmButtonText: "Okay"
@@ -66,7 +61,7 @@ export class LoginComponent implements OnInit {
            this.router.navigate(['/home']);
           }
           else if(data.adminStatus=="Sucess"){
-            localStorage.setItem('AdminId', String(data.userId));
+            localStorage.setItem('AdminId', String(data.adminId));
             Swal.fire({
               title: "Admin Login Success",
                text:"Please avail services",
@@ -74,6 +69,7 @@ export class LoginComponent implements OnInit {
                confirmButtonText: "Okay"
            });
            this.router.navigate(['/admin']);
+           
           }
         }
       )

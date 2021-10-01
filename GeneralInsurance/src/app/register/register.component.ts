@@ -14,13 +14,14 @@ export class RegisterComponent implements OnInit {
 
   userName:string ="";
   userEmail:string = "";
-  pass: string="";
+  password: string="";
   userPhone:string = "";
   aadharCard:string = "";
   dateOfBirth!: Date;
   hide:boolean = true;
   user:Users=new Users();
-
+  passwordPtn ='^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$'
+  
   constructor(private router:Router,private service:LoginService) { }
 
   ngOnInit(): void {
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
   register(regform:NgForm){
     this.user.userName=this.userName
     this.user.userEmail=this.userEmail
-    this.user.userPassword=this.pass
+    this.user.userPassword=this.password
     this.user.userPhone=this.userPhone
     this.user.userDateOfBirth=this.dateOfBirth
     this.user.userAadharNo=this.aadharCard

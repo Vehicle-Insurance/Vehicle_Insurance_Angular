@@ -57,7 +57,23 @@ export class LoginService {
     return this.httpClient.get<Claims[]>(this.baseUrl+"getClaims")
   }
 
-  addCliam(c: Claims) {
-    return this.httpClient.post<Claims>(this.baseUrl+"addClaim",c)
+  addCliam(c: Claims,id:number) {
+    return this.httpClient.post<Claims>(this.baseUrl+"addClaim/"+id,c)
+  }
+
+  getPolicyById(id:number){
+    return this.httpClient.get<Policy[]>(this.baseUrl+"getPolicyById/"+id)
+  }
+
+  getPolicyByClaim(id:number){
+    return this.httpClient.get<Policy>(this.baseUrl+"getPolicyByClaim/"+id)
+  }
+
+  getPolicy(id:number){
+    return this.httpClient.get<Policy>(this.baseUrl+"getPolicy/"+id)
+  }
+
+  renew(pol:Policy){
+    return this.httpClient.post<Policy>(this.baseUrl+"renewPolicy",pol)
   }
 }

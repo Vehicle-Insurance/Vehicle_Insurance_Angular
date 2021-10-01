@@ -48,9 +48,9 @@ export class PolicyComponent implements OnInit {
   }
 
   policy(planform:NgForm){
-    this.pol.userID=this.userId
+    this.pol.user.userId=this.userId
     this.pol.policyPlan=this.planType
-    this.pol.vehicleId=this.vehicleId
+    this.pol.vehicle.vehicleId=this.vehicleId
     this.pol.policyDuration=this.years
     this.pol.policyFor=this.vehicle.vehicleType
     this.pol.policyStartDate=new Date

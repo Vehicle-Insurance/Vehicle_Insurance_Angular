@@ -1,12 +1,12 @@
-<p>register works!</p>
+
 <div class="container-fluid" style="margin: 0;">
-    <div>
+    <!-- <div>
         <a routerLink="/">
             <div>
                 <img src="../../assets/images/LTI-LOGO.png" alt="LTI Logo">
             </div>
         </a>
-    </div>
+    </div> -->
     <div style="margin: 0;">
   
         <div class="form-holder" style="height: 50vmax;">
@@ -33,7 +33,11 @@
                             <input class="form-control" type="text" name="phone" placeholder="Phone number" required #phone="ngModel" [(ngModel)]="userPhone" style="width: 50%;"><br><br>
                             <input class="form-control" type="date" name="dob"  required #dob="ngModel" [(ngModel)]="dateOfBirth" style="width: 50%;"><br><br>
                             <input class="form-control" type="text" name="aadhar" placeholder="Aadhar number" required #aadhar="ngModel" [(ngModel)]="aadharCard" style="width: 50%;"> <br><br>
-                            <input class="form-control" type="password" name ="pass" placeholder="Password" required [(ngModel)]="pass" style="width: 50%;"> <br><br>
+                            <!-- <input class="form-control" type="password" name ="pass" placeholder="Password" required [(ngModel)]="pass" style="width: 50%;"> <br><br> -->
+                            <input class="form-control" type="password" name="password" placeholder="enter password" [(ngModel)]="password" #Password="ngModel" minlength="8" maxlength="12" 
+                            [pattern]="passwordPtn"  required style="width: 50%;">
+                            <span class="error-msg" *ngIf="(Password.touched ) && Password.errors?.required">Password Required</span>
+                            <span class="error-msg" *ngIf="(Password.touched ) && Password.errors?.pattern">Passwordmust be 8-12 characters</span>
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Register</button>
                             </div>
@@ -89,3 +93,7 @@
                 </div>
             </div>
         </div>
+
+
+
+        

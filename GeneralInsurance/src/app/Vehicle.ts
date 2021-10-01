@@ -1,3 +1,5 @@
+import { Users } from "./Users";
+
 export class Vehicle
 {
       vehicleId:number=0;
@@ -9,7 +11,7 @@ export class Vehicle
       engineNumber:string="";
       chassisNumber:string="";
       age:number=0;
-      userId:number=0;
+      user:Users=new Users();
 
       constructor()
 

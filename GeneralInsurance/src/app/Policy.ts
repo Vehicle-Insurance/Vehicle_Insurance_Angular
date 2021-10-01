@@ -1,3 +1,8 @@
+import { Claims } from "./Cliams";
+import { Transaction } from "./Transaction";
+import { Users } from "./Users";
+import { Vehicle } from "./Vehicle";
+
 export class Policy
 {
     policyId:number=0;
@@ -7,9 +12,13 @@ export class Policy
     policyFor:string="";
     policyPremiumAmount:number=0;
     policyCoverageAmount:number=0;
-    userID:number=0;
-    vehicleId:number=0;
-    tranactionId:number=0;
+    //userID:number=0;
+    user:Users=new Users()
+    vehicle:Vehicle=new Vehicle()
+    //vehicleId:number=0;
+    //tranactionId:number=0;
+    transac:Transaction=new Transaction()
+    claimList:Claims[]=[]
 
     constructor()
     {

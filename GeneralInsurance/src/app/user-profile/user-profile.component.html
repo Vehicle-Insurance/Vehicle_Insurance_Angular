@@ -1,1 +1,93 @@
-<p>user-profile works!</p>
+<h2 href="#" style="text-align: center; font-size: 70px; float: none;">User Dashboard</h2>
+
+<div class="form-holder" style="height: 50vmax;">
+    <div class="form-content">
+        <div class="form-items">
+
+            <form #dashboardForm="ngForm" (submit)="user(dashboardForm)">
+                <table>
+                    <tr>
+                        <th>Policy Id</th>
+                        <th>Policy Type</th>
+                        <th>Vehicle Type</th>
+                        <th>Amount</th>
+                        <th>Duration</th>
+                        <th>Start Date</th>
+                        <th>Claims</th>
+                        <th>Renewals</th>
+                    </tr>
+                    <tr *ngFor="let u of policyList">
+                        <td>{{u.policyId}}</td>
+                        <td>{{u.policyPlan}}</td>
+                        <td>{{u.vehicle.vehicleType}}</td>
+                        <td>{{u.policyPremiumAmount}}</td>
+                        <td>{{u.policyDuration}}</td>
+                        <td>{{u.policyStartDate}}</td>
+                        <td><button (click)="claim(u.policyId)">Claim</button></td>
+                        <td><button (click)="renew(u.policyId)">Renew</button></td>
+                    </tr>
+                </table><br><br>
+
+                <form #claimForm="ngForm" (submit)="claims(claimForm)">
+
+                    <div *ngIf="i">
+                    <p>Reason to Claim Insurance:</p>
+                    <div class="inline-el-holder">
+                        <span class="inline-el">
+                            <div class="rad-with-details">
+                                <input class="form-check-input" type="radio" id="rad1" name="reasonOfClaim"
+                                    [(ngModel)]="reasonOfClaim" value="Natural Disaster" required
+                                    (change)="onItemChange($any($event.target).value)"><label for="rad1">Natural Disaster</label>
+                            </div>
+                        </span>
+                        <span class="inline-el">
+                            <div class="rad-with-details">
+                                <input class="form-check-input" type="radio" id="rad2" name="reasonOfClaim"
+                                    value="Man-Made Disaster" [(ngModel)]="reasonOfClaim" required checked
+                                    (change)="onItemChange($any($event.target).value)"><label for="rad2">Man-Made Disaster</label>
+                            </div>
+                        </span>
+                        <span class="inline-el">
+                            <div class="rad-with-details">
+                                <input class="form-check-input" type="radio" id="rad3" name="reasonOfClaim"
+                                    value="Road Accident" [(ngModel)]="reasonOfClaim" required checked
+                                    (change)="onItemChange($any($event.target).value)"><label for="rad3">Road Accident</label>
+                            </div>
+                        </span>
+                        <span class="inline-el">
+                            <div class="rad-with-details">
+                                <input class="form-check-input" type="radio" id="rad4" name="reasonOfClaim"
+                                    value="Theft" [(ngModel)]="reasonOfClaim" required checked
+                                    (change)="onItemChange($any($event.target).value)"><label for="rad4">Theft</label>
+                            </div>
+                        </span>
+                    </div><br>
+                    <div class="form-button">
+                        <button id="submit" type="submit" class="ibtn">Submit</button>
+                    </div>
+                </div>
+    
+                </form>
+
+                <table>
+                    <tr>
+                        <th>Claim Id</th>
+                        <th>Policy Id</th>
+                        <th>Vehicle Type</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Reason for Claim</th>
+                        <th>Claim Status</th>
+                    </tr>
+                    <tr *ngFor="let u of claimList">
+                        <td>{{u.claimId}}</td>
+                        <td>{{u.policyId}}</td>
+                        <td>{{u.vehicleType}}</td>
+                        <td>{{u.claimDate}}</td>
+                        <td>{{u.claimAmount}}</td>
+                        <td>{{u.reasonOfClaim}}</td>
+                        <td>{{u.claimStatus}}</td>
+                    </tr>
+                </table><br><br>
+
+            </form>

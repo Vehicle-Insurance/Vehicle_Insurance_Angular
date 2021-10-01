@@ -13,6 +13,8 @@ import { RegisterComponent } from './register/register.component';
 import { BuyInsuranceComponent } from './buy-insurance/buy-insurance.component';
 import { PolicyComponent } from './policy/policy.component';
 import { CalculatePremiumComponent } from './calculate-premium/calculate-premium.component';
+import { ClaimComponent } from './claim/claim.component';
+import { RenewComponent } from './renew/renew.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CalculatePremiumComponent } from './calculate-premium/calculate-premium
     RegisterComponent,
     BuyInsuranceComponent,
     PolicyComponent,
-    CalculatePremiumComponent
+    CalculatePremiumComponent,
+    ClaimComponent,
+    RenewComponent
   ],
   imports: [
     BrowserModule,

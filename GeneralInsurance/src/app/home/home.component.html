@@ -1,9 +1,9 @@
-<img src="../assets/images/LTI-LOGO.png" style="float: left;">
-<h2 href="#" style="text-align: center; font-size: 70px; float: none;">General Insuarnce</h2>
+<!-- <img src="../assets/images/LTI-LOGO.png" style="float: left;">
+<h2 href="#" style="text-align: center; font-size: 70px; float: none;">General Insuarnce</h2> -->
 <!--nav bar-->
 <div style="font-size: large;">
 
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" style="padding: 1%; font-size: larger;">
+    <!-- <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" style="padding: 1%; font-size: larger;">
         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
             
         </div>
         <button class="btn btn-outline-success my-2 my-sm-0" style="float: right" *ngIf="userId==null" (click)="signin()">Signup/Signin</button>
-      </nav>
+      </nav> -->
 
       <section >
         <article style="float: left; width: 70%; padding: 5%; font-size: larger; text-align: justify;">
@@ -42,10 +42,10 @@
             </article>
           <article style="float: right; padding: 5% ;font-size: larger;" >
     
-            <button class="btn btn-outline-success my-2 my-sm-0" style="float: right; width: 250px; font-size: larger;"  routerLink="/buyInsurance">Buy Insurance</button><br><br>
-            <button class="btn btn-outline-success my-2 my-sm-0" style="float: right; width: 250px; font-size: larger;" >Claim Insurance</button><br><br>
-            <button class="btn btn-outline-success my-2 my-sm-0" style="float: right; width: 250px;font-size: larger;" >Renew Insurance</button><br><br>
-            <button class="btn btn-outline-success my-2 my-sm-0" style="float: right; width: 250px;font-size: larger;" >Estimate Premium</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" style="float: right; width: 250px; font-size: larger;"  (click)="buy()">Buy Insurance</button><br><br>
+            <button class="btn btn-outline-success my-2 my-sm-0" style="float: right; width: 250px; font-size: larger;" (click)="renew()">Claim Insurance</button><br><br>
+            <button class="btn btn-outline-success my-2 my-sm-0" style="float: right; width: 250px;font-size: larger;" (click)="claim()">Renew Insurance</button><br><br>
+            <button class="btn btn-outline-success my-2 my-sm-0" style="float: right; width: 250px;font-size: larger;" routerLink="/calPremium">Estimate Premium</button>
             
         </article>
       </section>

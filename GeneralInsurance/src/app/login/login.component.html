@@ -34,17 +34,24 @@
                         <a routerLink="/login" class="active">Login</a> &nbsp; <a routerLink="/register">Register</a>
                     </div>
                     <form #loginForm="ngForm" (submit)="login(loginForm)">
-                        <input class="form-control" type="email" name="userEmail"
-                            placeholder="User Email" required 
+                        <input class="form-control" type="email" name="userEmail" #email="ngModel" 
+                            placeholder="User Email" required [pattern]="emailptn"
                              [(ngModel)]="userEmail" style="width: 50%;">
-                        <div *ngIf="userEmail" style="color: red;border: red;">
-                            <!-- <div *ngIf="email">email is required</div>
-                            <div *ngIf="email">Invalid email</div> -->
-                        </div><br>
+                             <div *ngIf="email.invalid && (email.touched||email.dirty)" style="color: red;border: red;" >
+                                <span class="error-msg" *ngIf="email.errors?.required">email is required</span>
+                                <span class="error-msg" *ngIf="email.errors?.pattern">Invalid email</span>
+                            </div>
+                        <br>
                             Password
-                            <input matinput type="password" [type]="hide ? 'password':'text'" class="form-control"
+                            <input class="form-control" type="password" [type]="hide ? 'password':'text'" name="password" placeholder="enter password" [(ngModel)]="userPassword" #Password="ngModel" minlength="8" maxlength="12" 
+                            [pattern]="passwordPtn"  required style="width: 50%;">
+                            <div *ngIf="Password.invalid && (Password.touched||Password.dirty)" style="color: red;border: red;">
+                            <span class="error-msg" *ngIf="(Password.touched ) && Password.errors?.required">Password Required</span>
+                            <span class="error-msg" *ngIf="(Password.touched ) && Password.errors?.pattern">Passwordmust be 8-12 characters</span>
+                            </div>
+                            <!-- <input matinput type="password" [type]="hide ? 'password':'text'" class="form-control"
                                 name="password" placeholder="Password" required #password="ngModel"
-                                [(ngModel)]="userPassword" style="width: 50%;" />
+                                [(ngModel)]="userPassword" style="width: 50%;" /> -->
                             <span id="visibility"><i class="fa fa-eye" matSuffix (click)="hide = !hide">
                                     {{hide ? '':''}}
                                 </i>

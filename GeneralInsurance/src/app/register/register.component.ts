@@ -21,6 +21,9 @@ export class RegisterComponent implements OnInit {
   hide:boolean = true;
   user:Users=new Users();
   passwordPtn ='^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$'
+  phoneptn='^((\\+91-?)|0)?[0-9]{10}$'
+  emailptn='[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'
+  aadharptn='^((\\+91-?)|0)?[0-9]{12}$'
   
   constructor(private router:Router,private service:LoginService) { }
 

@@ -76,4 +76,12 @@ export class LoginService {
   renew(pol:Policy){
     return this.httpClient.post<Policy>(this.baseUrl+"renewPolicy",pol)
   }
+
+  generateOtp(email:string){
+    return this.httpClient.get(this.baseUrl+"generateOtp/"+email)
+  }
+
+  setPassword(email:string,pass:string){
+    return this.httpClient.get(this.baseUrl+"setPass/"+email+"/"+pass)
+  }
 }

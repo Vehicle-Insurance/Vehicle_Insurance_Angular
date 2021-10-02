@@ -20,24 +20,31 @@
                     <br>
                     <form #regForm="ngForm" (submit)="register(regForm)">
                             <input class="form-control" type="text" name="name" placeholder="Full Name" required #name="ngModel" [(ngModel)]="userName" style="width: 50%;"><br><br>
-                            <input class="form-control" type="email" name="email" placeholder="E-mail Address" required #email="ngModel" [(ngModel)]="userEmail" style="width: 50%;"><br><br>
-                            <!--  <input class="form-control" type="text" name="password" placeholder="Password" required #password="ngModel" [(ngModel)]="password"> -->
-                       <!--    <input matinput type="password" [type]="hide ? 'password':'text'" class="form-control"
-                                name="password" placeholder="Password" required #password="ngModel"
-                                [(ngModel)]="password" style="width: 50%;" />
-                            <span id="visibility"><i class="fa fa-eye" matSuffix (click)="hide = !hide">
-                                    {{hide ? '':''}}
-                                </i>
-                            </span>
-                            <br>--> 
-                            <input class="form-control" type="text" name="phone" placeholder="Phone number" required #phone="ngModel" [(ngModel)]="userPhone" style="width: 50%;"><br><br>
+                            <input class="form-control" type="email" name="email" placeholder="E-mail Address" required #email="ngModel" [pattern]="emailptn" [(ngModel)]="userEmail" style="width: 50%;"><br>
+                            <div *ngIf="email.invalid && (email.touched||email.dirty)" style="color: red;border: red;" >
+                                <span class="error-msg" *ngIf="email.errors?.required">email is required</span>
+                                <span class="error-msg" *ngIf="email.errors?.pattern">Invalid email</span>
+                            </div>
+                            <br>
+                            <input class="form-control" type="text" name="phone" placeholder="Phone number" required #phone="ngModel" [pattern]="phoneptn" [(ngModel)]="userPhone" style="width: 50%;"><br>
+                            <div *ngIf="phone.invalid && (phone.touched||phone.dirty)" style="color: red;border: red;">
+                                <span class="error-msg" *ngIf="phone.errors?.required">Phone number is required</span>
+                                <span class="error-msg" *ngIf="phone.errors?.pattern">Invalid Phone</span>
+                            </div>
+                            <br>
                             <input class="form-control" type="date" name="dob"  required #dob="ngModel" [(ngModel)]="dateOfBirth" style="width: 50%;"><br><br>
-                            <input class="form-control" type="text" name="aadhar" placeholder="Aadhar number" required #aadhar="ngModel" [(ngModel)]="aadharCard" style="width: 50%;"> <br><br>
+                            <input class="form-control" type="text" name="aadhar" placeholder="Aadhar number" required #aadhar="ngModel" [pattern]="aadharptn" [(ngModel)]="aadharCard" style="width: 50%;"> <br>
+                            <div *ngIf="aadhar.invalid && (aadhar.touched||aadhar.dirty)" style="color: red;border: red;">
+                                <span class="error-msg" *ngIf="aadhar.errors?.required">Aadhar number is required</span>
+                                <span class="error-msg" *ngIf="aadhar.errors?.pattern">Invalid Aadhar</span>
+                            </div>
+                            <br>
                             <!-- <input class="form-control" type="password" name ="pass" placeholder="Password" required [(ngModel)]="pass" style="width: 50%;"> <br><br> -->
                             <input class="form-control" type="password" name="password" placeholder="enter password" [(ngModel)]="password" #Password="ngModel" minlength="8" maxlength="12" 
                             [pattern]="passwordPtn"  required style="width: 50%;">
+                            <div *ngIf="Password.invalid && (Password.touched||Password.dirty)" style="color: red;border: red;">
                             <span class="error-msg" *ngIf="(Password.touched ) && Password.errors?.required">Password Required</span>
-                            <span class="error-msg" *ngIf="(Password.touched ) && Password.errors?.pattern">Passwordmust be 8-12 characters</span>
+                            <span class="error-msg" *ngIf="(Password.touched ) && Password.errors?.pattern">Passwordmust be 8-12 characters</span></div>
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Register</button>
                             </div>

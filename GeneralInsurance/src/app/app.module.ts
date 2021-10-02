@@ -15,6 +15,7 @@ import { PolicyComponent } from './policy/policy.component';
 import { CalculatePremiumComponent } from './calculate-premium/calculate-premium.component';
 import { ClaimComponent } from './claim/claim.component';
 import { RenewComponent } from './renew/renew.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RenewComponent } from './renew/renew.component';
     PolicyComponent,
     CalculatePremiumComponent,
     ClaimComponent,
-    RenewComponent
+    RenewComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

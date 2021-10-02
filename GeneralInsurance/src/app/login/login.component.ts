@@ -21,6 +21,9 @@ export class LoginComponent implements OnInit {
   userList:Users[]=[];
   userType:string="";
   user:Users=new Users();
+  passwordPtn ='^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$'
+  emailptn='[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'
+
   constructor(private router:Router,private loginService:LoginService) { }
 
   ngOnInit(): void {
